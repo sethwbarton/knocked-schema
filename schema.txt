@@ -1,0 +1,25 @@
+Login (loginId, username, password) 
+Primary key: loginId
+
+Company (companyId, name)
+Primary Key: companyId 
+
+User (userId, loginId, firstName, lastName, copmanyId, rank)
+Foreign Key: companyId references Company, loginId references Login
+Primary Key: userId
+
+Knock (knockId, salesmanId, addressId, status, note)
+Foreign Key: addressId references Address, salesmanId references Salesmen
+Primary Key: knockId
+
+Area (areaId, medianIncome) 
+Primary key: areaId 
+Foreign Key: salesmenId references Salesman
+
+Customer (customerId, firstName, lastName, addressId, companyId, salesmanId)
+Primary key: customerId
+Foreign key: addressId references Address, companyId references Company, salesmanId references Salesman 
+
+Address (addressId, zip, areaId, street, city, number, unit, country)
+Foreign key: areaId references Area
+Primary key: addressId 
